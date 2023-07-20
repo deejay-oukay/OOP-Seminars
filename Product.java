@@ -49,7 +49,6 @@ public abstract class Product {
     public String toString() {
         return "Product [name=" + name + ", price=" + price + ", quanity=" + quanity + ", bestBefore="
                 + bestBefore.get(Calendar.YEAR) + '.' + bestBefore.get(Calendar.MONTH) + '.'
-                + bestBefore.get(Calendar.DAY_OF_MONTH)
-                + "]";
+                + bestBefore.get(Calendar.DAY_OF_MONTH) + "]";
     }
 }
