@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Automat {
+public class Automat implements Iterable<Product> {
     private List<Product> listProduct;
 
     public void initProducts(List<Product> myList) {
@@ -14,6 +15,10 @@ public class Automat {
                 return product;
         }
         return null;
+    }
+
+    public List<Product> getProducts() {
+        return listProduct;
     }
 
     public void changeQuantity(String name) {
@@ -38,5 +43,25 @@ public class Automat {
             return null;
         else
             return new Order(list, person);
+    }
+
+    @Override
+    public Iterator<Product> iterator() {
+        return new Iterator<Product>() {
+            private int counter = 0;
+
+            @Override
+            public boolean hasNext() {
+                return (counter < listProduct.size());
+            }
+
+            @Override
+            public Product next() {
+                if (!hasNext()) {
+                    return null;
+                }
+                return listProduct.get(counter++);
+            }
+        };
     }
 }

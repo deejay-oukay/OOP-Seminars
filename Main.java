@@ -1,17 +1,15 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Main {
-    // Реализуйте класс Товар, содержащий данные о товаре, и ТорговыйАвтомат,
-    // содержащий в себе методы initProducts (List <Product>) сохраняющий в себе
-    // список исходных продуктов и getProduct(String name)
-
     public static void main(String[] args) {
+
         // Наполняем автоматы продуктами (Семинар 1)
-        Product p1 = new Food("Twix", 100, 1, new GregorianCalendar(2023, 8, 20), .3);
-        Product p2 = new Food("Mars", 200, 10, new GregorianCalendar(2023, 8, 25), .5);
-        Product p3 = new Food("Sneakers", 300, 15, new GregorianCalendar(2023, 8, 30), .7);
+        Product p1 = new Food("Twix", 100, 1, new GregorianCalendar(2023, 8, 20), .7);
+        Product p2 = new Food("Mars", 300, 10, new GregorianCalendar(2023, 8, 25), .5);
+        Product p3 = new Food("Sneakers", 200, 15, new GregorianCalendar(2023, 8, 30), .3);
 
         Automat a1 = new Automat();
         List<Product> list1 = new ArrayList<>();
@@ -58,5 +56,20 @@ public class Main {
 
         man.MakeOrder(list2, a1);
         woman.MakeOrder(list3, a1);
+
+        // Сравниваем товары в автомате (Семинар 3)
+        System.out.println("Все товары в автомате без сортировки");
+        for (Product prod : a1.getProducts())
+            System.out.println(prod.toString());
+        System.out.println("Все товары в автомате, отсортированные по цене");
+        Collections.sort(a1.getProducts());
+        for (Product prod : a1.getProducts())
+            System.out.println(prod.toString());
+        System.out.println("Все товары в автомате, отсортированные по количеству");
+        // меняем поле, по которому нужна сортировка
+        Product.sortMode = "quanity";
+        Collections.sort(a1.getProducts());
+        for (Product prod : a1.getProducts())
+            System.out.println(prod.toString());
     }
 }
