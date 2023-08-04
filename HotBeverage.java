@@ -16,4 +16,9 @@ public class HotBeverage extends Beverage {
         this.temperature = temperature;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", temperature=" + temperature;
+    }
+
 }

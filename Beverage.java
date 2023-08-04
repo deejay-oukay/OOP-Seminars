@@ -18,9 +18,7 @@ public class Beverage extends Product {
 
     @Override
     public String toString() {
-        return "Product [name=" + getName() + ", price=" + getPrice() + ", quanity=" + getQuanity() + ", bestBefore="
-                + getBestBefore().get(Calendar.YEAR) + '.' + getBestBefore().get(Calendar.MONTH) + '.'
-                + getBestBefore().get(Calendar.DAY_OF_MONTH) + ", volume=" + volume + "]";
+        return super.toString() + ", volume=" + volume;
     }
 
 }

@@ -2,7 +2,7 @@ import java.util.List;
 
 public class HotAutomat extends Automat {
 
-    private List<HotBeverage> listProduct;
+    protected List<HotBeverage> listProduct;
 
     public void initBeverages(List<HotBeverage> myList) {
         listProduct = myList;
@@ -15,6 +15,10 @@ public class HotAutomat extends Automat {
                 return product;
         }
         return null;
+    }
+
+    public List<HotBeverage> getHots() {
+        return listProduct;
     }
 
 }

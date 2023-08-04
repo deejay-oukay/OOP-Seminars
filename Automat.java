@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Automat implements Iterable<Product> {
-    private List<Product> listProduct;
+public class Automat implements Iterable<Product>, Service<Automat, Product> {
+    protected List<Product> listProduct;
 
     public void initProducts(List<Product> myList) {
         listProduct = myList;
@@ -63,5 +63,17 @@ public class Automat implements Iterable<Product> {
                 return listProduct.get(counter++);
             }
         };
+    }
+
+    // вариант с указанием автомата (на мой взгляд нелогичный)
+    @Override
+    public void addProduct2Automat(Automat automat, Product product) {
+        automat.listProduct.add(product);
+    }
+
+    @Override
+    // вариант без указания автомата
+    public void addProduct2Automat(Product product) {
+        listProduct.add(product);
     }
 }

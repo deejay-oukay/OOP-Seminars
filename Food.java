@@ -18,9 +18,7 @@ public class Food extends Product {
 
     @Override
     public String toString() {
-        return "Product [name=" + getName() + ", price=" + getPrice() + ", quanity=" + getQuanity() + ", bestBefore="
-                + getBestBefore().get(Calendar.YEAR) + '.' + getBestBefore().get(Calendar.MONTH) + '.'
-                + getBestBefore().get(Calendar.DAY_OF_MONTH) + ", weight=" + weight + "]";
+        return super.toString() + ", weight=" + weight;
     }
 
 }
